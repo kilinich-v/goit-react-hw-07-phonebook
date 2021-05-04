@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import { filterContact } from '../../redux/actions';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
 
 export class FindContacts extends Component {
   render() {
@@ -25,7 +26,7 @@ export class FindContacts extends Component {
 }
 
 const mapStateToProps = state => ({
-  value: state.contacts.filter,
+  value: contactsSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({

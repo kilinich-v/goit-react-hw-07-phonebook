@@ -5,6 +5,7 @@ import {
   getContacts,
   deleteContact,
 } from '../../redux/contacts/contacts-operations';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
 
 export class ContactsList extends Component {
   componentDidMount() {
@@ -32,12 +33,8 @@ export class ContactsList extends Component {
   }
 }
 
-const mapStateToProps = ({ contacts }) => ({
-  contacts: contacts.items.filter(
-    ({ name, number }) =>
-      name.toLowerCase().includes(contacts.filter.toLowerCase()) ||
-      number.includes(contacts.filter),
-  ),
+const mapStateToProps = state => ({
+  contacts: contactsSelectors.getVisibleContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
