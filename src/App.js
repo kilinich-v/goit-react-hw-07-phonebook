@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import AddContact from './components/AddContact';
 import Contacts from './components/Contacts';
 

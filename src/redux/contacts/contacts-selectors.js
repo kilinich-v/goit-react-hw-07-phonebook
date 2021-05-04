@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getContactsError } from '../actions';
 
 const getFilter = state => state.contacts.filter;
 const getContacts = state => state.contacts.items;
